@@ -9,8 +9,12 @@ export const getDatabase = async () => {
     return await axios.get(url);
 }
 
-export const getAllData = async (id: DBid) => {
-    return await axios.get(`${url}/${id}`);
+export const getAllData = async (id: DBid, body: any) => {
+    console.log(body);
+    return await axios.get(`${url}/${id}`, {params: {
+        sorted: body.sorted,
+        filterByProperty: !body.filterByProperty || body.filterByProperty==="" ? "id" : body.filterByProperty
+    }});
 }
 
 export const addRow = async (id: DBid, data: DBData) => {

@@ -21,14 +21,16 @@ app.get('/:tableName', (req, res) => {
   if(table===-1){
     res.status(400).send('bad response');
   }
-  let {sorted, filterByProperty} = req.body;
+  let {sorted, filterByProperty} = req.query;
+  console.log(sorted, filterByProperty, req.query);
   if(!filterByProperty){
     filterByProperty = 'id';
   }
   if(sorted){
     res.send(sortTableByProperty(tableName, filterByProperty))
+  }else{
+    res.send(table)
   }
-  res.send(table)
 })
 
 // COMPLETED
