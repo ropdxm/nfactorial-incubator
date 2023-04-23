@@ -1,6 +1,6 @@
 import Select, { SingleValue } from 'react-select';
 import {useState, useRef} from 'react';
-import { addRow, addTable, deleteRow, deleteTable } from '../service/api';
+import { deleteRow, deleteTable } from '../service/api';
 import { options } from './Home';
 
 const deleteOptions = [
